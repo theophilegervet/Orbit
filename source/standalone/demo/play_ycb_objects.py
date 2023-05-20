@@ -128,13 +128,13 @@ def main():
 
     print("Get reference to one...")
     prim = stage.GetPrimAtPath("/World/Objects/crackerBox2")
-    print(prim.GetName(), prim.GetPrimPath(), prim.GetAttribute('purpose').Get())
+    print(prim.GetName(), prim.GetPrimPath())
     print(dir(prim))
-    print("prim.GetAllChildren()", prim.GetAllChildren())
-    print("prim.GetAttributes()", prim.GetAttributes())
     print("prim.GetChildren()", prim.GetChildren())
     print("prim.GetParent()", prim.GetParent())
     print("prim.GetPropertyNames()", prim.GetPropertyNames())
+    for attribute in prim.GetPropertyNames():
+        print(attribute, prim.GetAttribute(attribute).Get())
 
     # ------------------------------------------------------------------------------------
 
