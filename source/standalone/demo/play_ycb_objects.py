@@ -136,6 +136,8 @@ def main():
     for attribute in prim.GetPropertyNames():
         print(attribute, type(prim.GetAttribute(attribute).Get()))
 
+    print(f"{ISAAC_NUCLEUS_DIR}/Props/YCB/Axis_Aligned_Physics/003_cracker_box.usd")
+
     # ------------------------------------------------------------------------------------
 
     # Now we are ready!
