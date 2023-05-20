@@ -121,8 +121,7 @@ def main():
     print("[INFO]: Inspect scene elements...")
     stage = omni.usd.get_context().get_stage()
     for prim in stage.TraverseAll():
-        print(type(prim))
-        raise NotImplementedError
+        print(prim.GetTypeName())
 
     # Now we are ready!
     print("[INFO]: Setup complete...")
