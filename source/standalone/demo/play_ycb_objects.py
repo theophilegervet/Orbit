@@ -33,6 +33,7 @@ import omni.isaac.core.utils.prims as prim_utils
 from omni.isaac.core.simulation_context import SimulationContext
 from omni.isaac.core.utils.viewports import set_camera_view
 
+import omni
 import omni.isaac.orbit.utils.kit as kit_utils
 from omni.isaac.orbit.objects.rigid import RigidObject, RigidObjectCfg
 from omni.isaac.orbit.utils.assets import ISAAC_NUCLEUS_DIR
@@ -88,9 +89,9 @@ def main():
     # add YCB objects
     ycb_usd_paths = {
         "crackerBox": f"{ISAAC_NUCLEUS_DIR}/Props/YCB/Axis_Aligned_Physics/003_cracker_box.usd",
-        # "sugarBox": f"{ISAAC_NUCLEUS_DIR}/Props/YCB/Axis_Aligned_Physics/004_sugar_box.usd",
-        # "tomatoSoupCan": f"{ISAAC_NUCLEUS_DIR}/Props/YCB/Axis_Aligned_Physics/005_tomato_soup_can.usd",
-        # "mustardBottle": f"{ISAAC_NUCLEUS_DIR}/Props/YCB/Axis_Aligned_Physics/006_mustard_bottle.usd",
+        "sugarBox": f"{ISAAC_NUCLEUS_DIR}/Props/YCB/Axis_Aligned_Physics/004_sugar_box.usd",
+        "tomatoSoupCan": f"{ISAAC_NUCLEUS_DIR}/Props/YCB/Axis_Aligned_Physics/005_tomato_soup_can.usd",
+        "mustardBottle": f"{ISAAC_NUCLEUS_DIR}/Props/YCB/Axis_Aligned_Physics/006_mustard_bottle.usd",
     }
     for key, usd_path in ycb_usd_paths.items():
         translation = torch.rand(3).tolist()
@@ -115,6 +116,12 @@ def main():
     # Initialize handles
     # note: We desire view over all the objects in the scene.
     rigid_object.initialize("/World/Objects/.*")
+
+    # Inspect stage elements
+    print("[INFO]: Inspect scene elements...")
+    stage = omni.usd.get_context().get_stage()
+    for prim in stage.TraverseAll():
+        print(type(prim))
 
     # Now we are ready!
     print("[INFO]: Setup complete...")
