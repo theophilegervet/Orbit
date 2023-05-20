@@ -134,7 +134,7 @@ def main():
     print("prim.GetParent()", prim.GetParent())
     print("prim.GetPropertyNames()", prim.GetPropertyNames())
     for attribute in prim.GetPropertyNames():
-        print(attribute, prim.GetAttribute(attribute).Get())
+        print(attribute, type(prim.GetAttribute(attribute).Get()))
 
     # ------------------------------------------------------------------------------------
 
