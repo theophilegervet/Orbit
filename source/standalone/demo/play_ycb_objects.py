@@ -124,12 +124,17 @@ def main():
     stage = omni.usd.get_context().get_stage()
     for prim in stage.TraverseAll():
         if prim.GetTypeName() == "Mesh":
-            print(prim.GetName(), prim.GetPrimPath(), prim.GetAttribute('purpose').Get())
+            print(prim.GetName(), prim.GetPrimPath())
 
     print("Get reference to one...")
     prim = stage.GetPrimAtPath("/World/Objects/crackerBox2")
     print(prim.GetName(), prim.GetPrimPath(), prim.GetAttribute('purpose').Get())
     print(dir(prim))
+    print("prim.GetAllChildren()", prim.GetAllChildren())
+    print("prim.GetAttributes()", prim.GetAttributes())
+    print("prim.GetChildren()", prim.GetChildren())
+    print("prim.GetParent()", prim.GetParent())
+    print("prim.GetPropertyNames()", prim.GetPropertyNames())
 
     # ------------------------------------------------------------------------------------
 
