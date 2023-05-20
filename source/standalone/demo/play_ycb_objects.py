@@ -127,7 +127,7 @@ def main():
             print(prim.GetName(), prim.GetPrimPath())
 
     print("Get reference to one...")
-    prim = stage.GetPrimAtPath("/World/Objects/crackerBox2")
+    prim = stage.GetPrimAtPath("/World/Objects/mustardBottle/_06_mustard_bottle")
     print(prim.GetName(), prim.GetPrimPath())
     print(dir(prim))
     print("prim.GetChildren()", prim.GetChildren())
