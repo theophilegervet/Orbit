@@ -121,7 +121,8 @@ def main():
     print("[INFO]: Inspect scene elements...")
     stage = omni.usd.get_context().get_stage()
     for prim in stage.TraverseAll():
-        print(prim.GetTypeName())
+        if prim.GetTypeName() == "Mesh":
+            print(prim.GetPrimPath())
 
     # Now we are ready!
     print("[INFO]: Setup complete...")
