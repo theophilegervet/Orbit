@@ -129,6 +129,7 @@ def main():
     print("Get reference to one...")
     prim = stage.GetPrimAtPath("/World/Objects/crackerBox2")
     print(prim.GetName(), prim.GetPrimPath(), prim.GetAttribute('purpose').Get())
+    print(dir(prim))
 
     # ------------------------------------------------------------------------------------
 
