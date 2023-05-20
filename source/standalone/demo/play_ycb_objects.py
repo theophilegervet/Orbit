@@ -117,12 +117,20 @@ def main():
     # note: We desire view over all the objects in the scene.
     rigid_object.initialize("/World/Objects/.*")
 
+    # ------------------------------------------------------------------------------------
     # Inspect stage elements
-    print("[INFO]: Inspect scene elements...")
+
+    print("Traversing all...")
     stage = omni.usd.get_context().get_stage()
     for prim in stage.TraverseAll():
         if prim.GetTypeName() == "Mesh":
-            print(prim.GetPrimPath())
+            print(prim.GetName(), prim.GetPrimPath())
+
+    print("Get reference to one...")
+    prim = stage.GetPrimAtPath("/World/Objects/crackerBox2")
+    print(prim.GetName(), prim.GetPrimPath())
+
+    # ------------------------------------------------------------------------------------
 
     # Now we are ready!
     print("[INFO]: Setup complete...")
